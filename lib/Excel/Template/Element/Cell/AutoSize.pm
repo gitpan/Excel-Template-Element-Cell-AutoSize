@@ -1,5 +1,5 @@
 package Excel::Template::Element::Cell::AutoSize;
-
+$VERSION = '0.04';
 use strict;
 
 BEGIN {
@@ -7,7 +7,6 @@ BEGIN {
     use Font::TTFMetrics;
     use vars qw(@ISA);
 
-    $VERSION = '0.02';
     @ISA = qw(Excel::Template::Element::Cell);
 
     Excel::Template::Factory::register(name => 'CELLAUTOSIZE', class => 'Excel::Template::Element::Cell::AutoSize', isa => 'CELL');
@@ -67,7 +66,7 @@ __END__
 
 =head1 NAME
 
-Excel::Template::Element::Cell::AutoSize - Excel::Template::Element::CellAutoSize
+Excel::Template::Element::Cell::AutoSize
 
 =head1 PURPOSE
 
@@ -81,25 +80,6 @@ CELLAUTOSIZE
 
 Excel::Template::Element::Cell
 
-=head1 ATTRIBUTES
-
-=over 4
-
-=item * TEXT
-
-This is the text to write to the cell. This can either be text or a parameter
-with a dollar-sign in front of the parameter name.
-
-=item * COL
-
-Optionally, you can specify which column you want this cell to be in. It can be
-either a number (zero-based) or an offset. See Excel::Template for more info on
-offset-based numbering.
-
-=back 4
-
-There will be more parameters added, as features are added.
-
 =head1 CHILDREN
 
 Excel::Template::Element::Formula
@@ -110,7 +90,7 @@ This will consume one column on the current row.
 
 =head1 DEPENDENCIES
 
-None
+Font::TTFMetrics
 
 =head1 USAGE
 
@@ -127,11 +107,6 @@ middle, you have to use the latter form. Variables within parameters are the
 entire parameter's value.
 
 Please see Spreadsheet::WriteExcel for what constitutes a legal formula.
-
-=head1 BACK-REFERENCES
-
-Currently, you can only use a hard-coded formula. The next release will add the
-capability to have a formula reference other nodes in the template dynamically.
 
 =head1 AUTHOR
 
